@@ -66,7 +66,7 @@ footer .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr
 <h1>Uttarakhand Escape</h1>
 <p>Mumbai, Delhi, Mussoorie, Dehradun and home again.</p>
 <div class="trav"><div class="eb" style="margin:0 0 6px">Travellers</div>Agnijit Tarafdar<br>Swagata Tarafdar<br>Sagnik Tarafdar</div>
-<div class="eb" style="margin-bottom:10px">Departure · Sun 8 Nov, 1:00 PM IST</div>
+<div class="eb" style="margin-bottom:10px">Departure · Sun 8 Nov, 3:05 PM IST</div>
 <div class="cd" id="cd"></div>
 <a class="pill d" href="#plan">View itinerary</a> <a class="pill gd" href="#flights">Flight details</a>
 <div class="cats" id="cats"></div></div></header>
@@ -100,19 +100,19 @@ const ic=(k,c='')=>`<span class="ic ${c}"><svg viewBox="0 0 24 24" fill="none" s
 const tIcon=(t,x)=>t=='travel'?(/Akasa|IndiGo|flight/i.test(x)?'flight':'cab'):t=='stay'?'hotel':t;
 const cat=n=>/flight/i.test(n)?'flight':/hotel/i.test(n)?'hotel':/cab|transfer/i.test(n)?'cab':/sight/i.test(n)?'sight':/food/i.test(n)?'food':'bag';
 $('#cats').innerHTML=[['flight','Flights','3 flights · 2 tickets','#flights'],['hotel','Hotels','3 stays · 8 nights','#bookings'],['cab','Cabs','2 booked · 4 to arrange','#later'],['sight','Sightseeing','Mussoorie and Dehradun','#plan']].map(c=>`<a class="cat" href="${c[3]}">${ic(c[0])}<div><b>${c[1]}</b><span class="s">${c[2]}</span></div></a>`).join('');
-const tgt=new Date('2026-11-08T13:00:00+05:30');
+const tgt=new Date('2026-11-08T15:05:00+05:30');
 function tick(){let s=Math.max(0,(tgt-Date.now())/1000|0);const v=[[s/86400|0,'days'],[s%86400/3600|0,'hours'],[s%3600/60|0,'minutes'],[s%60,'seconds']];
 $('#cd').innerHTML=v.map(x=>`<div><b>${String(x[0]).padStart(2,'0')}</b><span>${x[1]}</span></div>`).join('');
 $('#cdp').textContent=s?`${v[0][0]}d ${v[1][0]}h ${v[2][0]}m to go`:'Bon voyage'}tick();setInterval(tick,1000);
 const FL=[
-{n:'QP 1113',al:'Akasa Air',d:'Sun, 8 Nov 2026',a:['1:00 PM','BOM','Chhatrapati Shivaji Maharaj Intl, Mumbai','Terminal 2'],b:['3:20 PM','DEL','Indira Gandhi Intl, New Delhi','Terminal 1'],du:'2h 20m · non-stop',m:['PNR J6EJPP · Cleartrip 260907745228','Economy Saver · 15 kg check-in, 7 kg cabin','Reach the airport 3 hours early; check-in closes 60 min before']},
+{n:'QP 1117',al:'Akasa Air',d:'Sun, 8 Nov 2026',a:['3:05 PM','BOM','Chhatrapati Shivaji Maharaj Intl, Mumbai','Terminal 2'],b:['5:25 PM','DEL','Indira Gandhi Intl, New Delhi','Terminal 1'],du:'2h 20m · non-stop',m:['PNR J6EJPP · Cleartrip 260907745228 · Status: on time','Economy Saver · 15 kg check-in, 7 kg cabin','Reach the airport 3 hours early; check-in closes 60 min before']},
 {n:'6E 5116',al:'IndiGo',d:'Sun, 15 Nov 2026',a:['5:15 PM','DEL','Indira Gandhi Intl, New Delhi','Terminal 3'],b:['7:05 PM','IXU','Chhatrapati Sambhajinagar Airport','Terminal not listed'],du:'1h 50m · leg 1 of 2',m:['PNR TBRVGW · MMT NF7ANGEJ80493131355','Economy · 15 kg check-in, 7 kg cabin','Check-in closes 60 min before departure']},
 {n:'6E 6093',al:'IndiGo',d:'Sun, 15 Nov 2026',a:['9:00 PM','IXU','Chhatrapati Sambhajinagar Airport','Terminal not listed'],b:['9:55 PM','NMI','Navi Mumbai Intl Airport','Terminal not listed'],du:'55m · leg 2 of 2',m:['PNR TBRVGW · 1h 55m layover at IXU, change of planes','Lands at Navi Mumbai, not the main Mumbai airport','Economy · 15 kg check-in, 7 kg cabin']}];
 $('#fl').innerHTML=FL.map(f=>`<article class="cell"><div class="hd">${ic('flight')}<div><div class="eb" style="margin:0 0 4px">${f.n}</div><b>${f.al}</b></div></div><p>${f.d}</p>
 <div class="fr"><div><div class="tm">${f.a[0]}</div><b>${f.a[1]}</b><p>${f.a[2]}</p><span class="tag">${f.a[3]}</span></div><div class="ar">${f.du.split(' · ')[0]}<br>→<br>${f.du.split(' · ')[1]}</div><div style="text-align:right"><div class="tm">${f.b[0]}</div><b>${f.b[1]}</b><p>${f.b[2]}</p><span class="tag">${f.b[3]}</span></div></div>
 ${f.m.map((x,i)=>`<p class="${i?'':'sens'}">${x}</p>`).join('')}<p class="sens">Travellers: Agnijit, Swagata and Sagnik Tarafdar</p></article>`).join('');
 const DAYS=[
-{d:'Sun 8 Nov',t:'Mumbai to Delhi',it:[['travel','Akasa Air QP 1113: Mumbai T2 at 1:00 PM, Delhi T1 at 3:20 PM (2h 20m, non-stop).','Chhatrapati Shivaji Maharaj International Airport'],['travel','Airport transfer in Mumbai and Delhi: yet to arrange (₹2,000 planned for both ends).'],['stay','Hotel Delhi Aerocity, Rangpuri: check-in after 12 PM, free early check-in up to 2 hours. Super Deluxe Room, breakfast included, extra bed free.','Hotel Delhi Aerocity 325/2 NH8 Rangpuri Delhi 110037']]},
+{d:'Sun 8 Nov',t:'Mumbai to Delhi',it:[['travel','Akasa Air QP 1117: Mumbai T2 at 3:05 PM, Delhi T1 at 5:25 PM (2h 20m, non-stop, on time).','Chhatrapati Shivaji Maharaj International Airport'],['travel','Airport transfer in Mumbai and Delhi: yet to arrange (₹2,000 planned for both ends).'],['stay','Hotel Delhi Aerocity, Rangpuri: check-in after 12 PM, free early check-in up to 2 hours. Super Deluxe Room, breakfast included, extra bed free.','Hotel Delhi Aerocity 325/2 NH8 Rangpuri Delhi 110037']]},
 {d:'Mon 9 Nov',t:'Delhi to Mussoorie',it:[['travel','Cab 9:30 AM from Hotel Delhi Aerocity to Seven Oaks, ETA 2:56 PM (Xylo/Ertiga CNG, 277 km). Free late check-out up to 2 hours at the hotel.'],['travel','AC is off in hilly areas. CNG boot space is limited, and a refill stop can take 30+ minutes.'],['stay','Perfectstayz Seven Oaks, Camels Back Road: check-in from 1 PM, 3 nights, breakfast included.','Perfectstayz Premium Seven Oaks Mussoorie'],['sight','Optional sunset walk on Camel’s Back Road, 3 km, right outside the hotel.'],['food','Dinner on Mall Road.']]},
 {d:'Tue 10 Nov',t:'Kempty Cascades and the western circuit',it:[['travel','Local cab 8:30 AM to 1:30 PM: yet to arrange.'],['sight','9:15 Kempty Falls (~15 km): waterfall, pool and cable car, before the noon crowds.','Kempty Falls Mussoorie'],['sight','11:30 Company Garden: Victorian flowerbeds and a boating lake. Back by 1:30 PM.','Company Garden Mussoorie'],['food','1:30 lunch at Kalsang Friends Corner or Café De Tavern.'],['sight','2:30 Gun Hill ropeway from Jhula Ghar; 4:30 Camel’s Back sunset walk.','Gun Hill Mussoorie'],['food','6:30 Mall Road: souvenirs, woolens, Chic Chocolate or Lovely Omelette Centre.']]},
 {d:'Wed 11 Nov',t:'Landour heritage and Everest Estate',it:[['travel','Local cab 8:30 AM to 1:30 PM: yet to arrange. Choose a Swift or Dzire, because Landour’s lanes are steep and narrow.'],['sight','9:00 Lal Tibba (~6 km): highest point, snow peaks through binoculars.','Lal Tibba Landour'],['food','9:45 Char Dukan and St. Paul’s Church: bun-omelette, waffles, Landour Bakehouse.','Char Dukan Landour'],['sight','11:45 Sir George Everest Estate: heritage house, museum, 360° ridge view. Back by 1 PM. Optional: Cloud’s End.','Sir George Everest Estate Mussoorie'],['food','Late lunch near Mall Road or Urban Turban; 6 PM dinner at the hotel terrace.']]},
@@ -129,7 +129,7 @@ const its=d.it.filter(i=>(filt=='all'||i[0]==filt)&&(!q||(i[1]+d.t).toLowerCase(
 return`<div class="row"><div><div class="eb">${d.d}</div><h3>${d.t}</h3></div><div>${its.map(i=>`<div class="it">${ic(tIcon(i[0],i[1]))}<span class="tx">${i[1]}</span>${i[2]?`<a href="${maps(i[2])}" target="_blank" rel="noopener">Map ↗</a>`:''}</div>`).join('')}</div></div>`}).join('')||'<p>No matches.</p>'}render();
 const AER='Hotel Delhi Aerocity 325/2 NH8 Rangpuri Delhi 110037';
 const BK=[
-['Flight · Akasa Air QP 1113','PNR J6EJPP · Cleartrip 260907745228','Sun 8 Nov · ₹22,599 paid in full','Chhatrapati Shivaji Maharaj International Airport',1],
+['Flight · Akasa Air QP 1117','PNR J6EJPP · Cleartrip 260907745228','Sun 8 Nov · ₹22,599 paid in full','Chhatrapati Shivaji Maharaj International Airport',1],
 ['Hotel · Delhi Aerocity','Goibibo GH25053281057374 · PNR 0191670950','Sun 8 Nov · ₹2,463 paid in full · free cancellation till 8 Nov 11:59 AM',AER,1],
 ['Cab · Delhi to Mussoorie','MMT NC786798559416805806','Mon 9 Nov · total ₹6,807 · ₹1,406 paid · ₹5,401 to driver',AER,0],
 ['Hotel · Seven Oaks, Mussoorie','Reservation TAD1ZE','9–12 Nov · ₹13,500 · ₹4,000 paid · ₹9,500 at hotel','Perfectstayz Premium Seven Oaks Mussoorie',0],
